@@ -32,9 +32,10 @@ namespace MockingUnitTestsDemoApp.Impl.Services
             var allTeams = _teamRepo.GetForLeague(search.LeagueID);
 
             //... and filter them by the specified Founding Date and Direction.
-            if(search.Direction == Enums.SearchDateDirection.OlderThan)
+            if (search.Direction == Enums.SearchDateDirection.OlderThan)
                 return allTeams.Where(x => x.FoundingDate <= search.FoundingDate).ToList();
-            else return allTeams.Where(x => x.FoundingDate >= search.FoundingDate).ToList();
+
+            return allTeams.Where(x => x.FoundingDate >= search.FoundingDate).ToList();
         }
     }
 }
